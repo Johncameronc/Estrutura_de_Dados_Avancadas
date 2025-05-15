@@ -170,7 +170,7 @@ void imprimirEmOrdem(struct treeNode *raiz) {
     if (raiz != NULL) {
         imprimirEmOrdem(raiz->esq);
         
-        printf("id: %d | nome: %s | email: %s\n", raiz->Id, raiz->nome, raiz->email);
+        printf("id: %-4d | nome: %-30s | email: %-30s\n", raiz->Id, raiz->nome, raiz->email);
         
         imprimirEmOrdem(raiz->dir);
     }
