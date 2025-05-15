@@ -40,12 +40,8 @@ int main() {
         
         switch(opcao) {
             case 1:
-                clearScreen();
-                printf("\n========== inserir usuario ==========\n");
-                printf("\ndigite o id: ");
-                scanf("%d", &id);
-                limparBuffer();
-                
+                clearScreen();         
+                printf("\n========== inserir usuario ==========\n");       
                 printf("digite o nome: ");
                 fgets(nome, sizeof(nome), stdin);
                 nome[strcspn(nome, "\n")] = 0;
@@ -54,7 +50,7 @@ int main() {
                 fgets(email, sizeof(email), stdin);
                 email[strcspn(email, "\n")] = 0;
                 
-                raiz = inserir(raiz, id, nome, email);
+                raiz = inserir(raiz, getId(), nome, email);
                 printf("\nusuario inserido com sucesso!\n");
                 system("pause");
                 break;
@@ -86,6 +82,7 @@ int main() {
                 nome[strcspn(nome, "\n")] = 0;
                 
                 raiz = remover(raiz, nome);
+                
                 printf("\nusuario removido com sucesso!\n");
                 system("pause");
                 break;

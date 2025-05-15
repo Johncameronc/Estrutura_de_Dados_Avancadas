@@ -3,6 +3,12 @@
 #include <stdlib.h>
 #include <string.h>
 
+int id = 0;
+
+int getId() {
+    return id++;
+}
+
 int altura_NO(struct treeNode *no) {
     if (no == NULL)
         return -1;
@@ -65,7 +71,7 @@ int fatorBalanceamento(struct treeNode *raiz) {
     return altura_NO(raiz->esq) - altura_NO(raiz->dir);
 }
 
-struct treeNode *inserir(struct treeNode *raiz, int Id, char nome[], char email[]) {
+struct treeNode *inserir(struct treeNode *raiz, int Id, char nome[], char email[]) {    
     if (raiz == NULL)
         return novoNO(Id, nome, email);
 
@@ -136,7 +142,7 @@ struct treeNode *remover(struct treeNode *raiz, char nome[]) {
             raiz->dir = remover(raiz->dir, temp->nome);
         }
     }
-    
+
     if (raiz == NULL)
         return raiz;
         
@@ -164,10 +170,7 @@ void imprimirEmOrdem(struct treeNode *raiz) {
     if (raiz != NULL) {
         imprimirEmOrdem(raiz->esq);
         
-        printf("\nid: %d\n", raiz->Id);
-        printf("nome: %s\n", raiz->nome);
-        printf("email: %s\n", raiz->email);
-        printf("-------------------\n");
+        printf("id: %d | nome: %s | email: %s\n", raiz->Id, raiz->nome, raiz->email);
         
         imprimirEmOrdem(raiz->dir);
     }

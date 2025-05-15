@@ -13,6 +13,8 @@ struct treeNode {
 typedef struct treeNode TreeNode;
 typedef TreeNode *TreeNodePtr;
 
+int getId();
+
 int altura_NO(TreeNodePtr treePtr);
 int maior(int a, int b);
 
